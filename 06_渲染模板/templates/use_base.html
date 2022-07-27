@@ -1,0 +1,10 @@
+<!--继承base模块，创建模板-->
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    <!--新定义的head块，因为在基模板中其内容不是空的，所以使用super()获取原来的内容-->
+    {{super()}}
+{% endblock %}
+{% block body %}
+    <h1>hello world!</h1>
+{% endblock %}

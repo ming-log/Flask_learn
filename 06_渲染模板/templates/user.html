@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>USER</title>
+</head>
+<body>
+<!--jinjia2-->
+<!-- {{name}} 结构表示一个变量，它是一种特殊的占位符，告诉模板引擎这个位置的值从渲染模板时使用的数据中获取。-->
+<!--使用过滤器可以修改变量，过滤器名添加在变量名之后，中间使用竖线分隔。-->
+<!--常用的过滤器-->
+<!--safe:渲染时不转义-->
+<!--capitalize:把值的首字母转换成大写，其他字母转换成小写-->
+<!--lower:把值转换成小写-->
+<!--upper:把值转化成大写-->
+<!--title:把值中每个单词首字母都转换成大写-->
+<!--trim:把值的首尾空格去掉-->
+<!--striptags:渲染之前把值中所有的HTML标签都删掉-->
+    <h1>Hello, [{{name|capitalize}}]</h1>
+<!--判断-->
+    <h1>
+        {% if name_len > 2 %}
+        姓名超过2个字符
+        {% else %}
+        姓名不超过2个字符
+        {% endif %}
+    </h1>
+<!--循环-->
+    <h1>
+<!--        遍历列表-->
+        {% for i in ls %}
+            {{i}}
+        {% endfor %}
+<!--        遍历字典-->
+        <hr>
+        {% for key, value in dict_.items() %}
+            {{key}}
+            {{value}}
+        {% endfor %}
+    </h1>
+
+    <h1>
+        <!--定义宏，类似于Python中的函数-->
+        {% macro render_comment(comment) %}
+        <li>{{comment}}</li>
+        {% endmacro %}
+        <ul>
+            {% for comment in comments %}
+<!--            调用宏-->
+            {{render_comment(comment)}}
+            {% endfor %}
+        </ul>
+    </h1>
+<hr>
+<h1>导入html文件中的宏</h1>
+<!--导入html文件中的宏-->
+    <ul>
+    {% import 'macros.html' as macros %}
+    {% for comment in comments %}
+        {{macros.render_comment(comment)}}
+    {% endfor %}
+    </ul>
+</body>
+</html>
