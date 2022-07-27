@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		function postFiles(){
+			var refs = document.getElementById('reFile')
+			var file =  refs.files[0]
+			//上传文件、图片类型一般以二进制传递
+			let formData = new FormData()
+			// 向 FormData 中添加新的属性值 append()方法
+			formData.append('file',file)
+		}	
+	</script>
+	<body>
+		<form action="" method="">
+			<input type="file" name="filename" id="reFile" value="上传文件" onchange='postFiles()'/>
+			<input type="submit" name="上传" id="" value="" />
+		</form>
+		
+	</body>
+</html>
