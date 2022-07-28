@@ -1,4 +1,5 @@
 from flask import Flask
+
 app = Flask(__name__)
 
 # 同一个视图绑定多个URL
