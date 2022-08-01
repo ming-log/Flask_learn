@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 app = Flask(__name__)
 
 @app.route('/')  # 什么样的URL能触发函数    根目录  /

@@ -21,4 +21,8 @@ def base():
     return render_template('use_base.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run()
+    # host: IP地址
+    # port: 端口
+    # debug: True 调试模式，修改代码可实时进行网页更新
+    app.run(host='0.0.0.0', port=1234, debug=True)
